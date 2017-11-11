@@ -24,13 +24,18 @@ class RPG:# All of this can, and probably should, be within a class
     print("%s's intelligence is %s" % (name, hero_int))
     #Hero block <--
 
-    def quest_gen():
-        quests = ["slay the dragon", "save the princess"] #Changed name to quests since it holds multiple quests
+    def quest_gen(hero_str, hero_agi, hero_int):
+        quests = ["slay the dragon", "save the princess", "aquire new magic"] #Changed name to quests since it holds multiple quests
         quest = random.choice(quests) #Moved this from the print statement so you can remember the selected quest, similar to how you remember the heros name
         print("Your quest is to %s" % (quest))
 
-        if (quests[0] == quest): #Checking to see if the selected quest is equal to the dragon quest
-            print("yes")
+        if (quests[0] == quest and hero_str >= 6): #Checking to see if the selected quest is equal to the dragon quest
+            print("You have slain the dragon!")
+        elif (quest[1] == quest and hero_agi >= 6):
+            print("You haved saved the princess!")
+        elif (quest[2] == quest and hero_int >= 6):
+            print ("You have gained new magic!")
         else:
-            print("no")
-    quest_gen()
+            print ("You have failed in your quest.")
+    quest_gen(hero_str, hero_agi, hero_int)
+
